@@ -1,20 +1,31 @@
 <html>
 	<body>
-		<div id="firstBlock">
+		<div id="main_content">
 			tony
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 		<script type="module">
-			document.getElementById("firstBlock").innerHTML = "<p>Head</p>";
+			var csvName = "oto240528.csv";
+			var blockName = "main_content";
+			document.getElementById(blockName).innerHTML = "<p>Head</p>";
 		
-			d3.csv('/test.csv', function(d) {
-				console.log(d);
-				var textNode = document.createTextNode(d);
-				document.getElementById("firstBlock").appendChild(textNode);
-			});
+			d3.csv(csvName, function(d) {
+				return {
+					bandname: d.BandName,
+					bandlength: d.BandLength,
+					spectype: d.SpectrometerType,
+					grating: d.Grating,
+					supplier: d.Supplier
+				};
+			})
+			.then(function (data) {
+				console.log(data);
+			})
+			.catch(function (error) {
+				console.error(error);
+			})
+			;
 
-			var footer = document.createTextNode("footer");
-			document.getElementById("firstBlock").appendChild(footer);
 		</script>
 	</body>
 </html>
