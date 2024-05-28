@@ -5,12 +5,12 @@
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 		<script type="module">
-			var e = document.getElementById("firstBlock").innerHTML = "<p>Head</p>";
+			document.getElementById("firstBlock").innerHTML = "<p>Head</p>";
 		
 			d3.csv('/test.csv', function(d) {
 				console.log(d);
 				var textNode = document.createTextNode(d);
-				e.appendChild(textNode);
+				document.getElementById("firstBlock").appendChild(textNode);
 			});
 
 			var footer = document.creteTextNode("footer");
