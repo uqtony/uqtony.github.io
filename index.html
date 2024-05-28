@@ -3,12 +3,24 @@
 		<div id="main_content">
 			tony
 		</div>
+		<div id="search_block">
+			<input type="button" value="Search" onClick="search()" />	
+		</div>
+		<div id="result">
+			None
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 		<script type="module">
 			var csvName = "oto240528.csv";
 			var blockName = "main_content";
-			document.getElementById(blockName).innerHTML = "<p>Head</p>";
-		
+			var csvData = "Processing";
+
+			function search() {
+				console.log("On search");
+				var e = document.getElementById("result");
+				var tNode = document.createTextNode(csvData);
+				e.appendChild(tNode);
+			}
 			d3.csv(csvName, function(d) {
 				return {
 					bandname: d.BandName,
@@ -20,7 +32,14 @@
 			})
 			.then(function (data) {
 				//console.log(data);
-				console.log("data size="+data.length);
+				csvData = data;
+				var msg = "data size="+data.length;
+
+				var e = document.getElementById("main_content");
+                                var tNode = document.createTextNode(msg);
+                                e.appendChild(msg);
+
+				console.log(msg);
 			})
 			.catch(function (error) {
 				console.error(error);
