@@ -39,7 +39,11 @@
                         function mySearch() {
                                 console.log("On search");
                                 var e = document.getElementById("result");
-                                var tNode = document.createTextNode(csvData);
+				var msg = "";
+				csvData.forEach(function(obj){
+					msg += obj.spectype +"\r\n";
+				});
+                                var tNode = document.createTextNode(msg);
                                 e.appendChild(tNode);
                         }
 
