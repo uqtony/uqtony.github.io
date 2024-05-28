@@ -41,8 +41,9 @@
                                 var e = document.getElementById("result");
 				var msg = "";
 				csvData.forEach(function(obj){
-					msg += obj.spectype +"\r\n";
+					msg += obj.bandname +", "+obj.bandlength+", "+obj.spectype+"\r\n";
 				});
+				e.innerHTML = "";
                                 var tNode = document.createTextNode(msg);
                                 e.appendChild(tNode);
                         }
