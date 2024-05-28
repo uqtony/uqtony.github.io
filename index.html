@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<div id="firstBlock">
+			tony
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+		<script type="module">
+		
+			d3.csv('/test.csv', function(d) {
+				console.log(d);	
+			});
+
+			document.getElementById("firstBlock").innerHTML = "<p>test</p>";
+		</script>
+	</body>
+</html>
