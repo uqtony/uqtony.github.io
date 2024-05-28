@@ -1,7 +1,7 @@
 <html>
 	<body>
 		<div id="main_content">
-			tony
+			Load data
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 		<script>
@@ -39,10 +39,11 @@
                         function mySearch() {
                                 console.log("On search");
                                 var e = document.getElementById("result");
-				var msg = "";
+				var msg = "<select id=theList size="+csvData.length+">";
 				csvData.forEach(function(obj){
-					msg += "<div>"+obj.bandname +", "+obj.bandlength+", "+obj.spectype+"</div>";
+					msg += "<option value=" +obj.bandname +">"+obj.bandname;
 				});
+				msg += "</select>";
 				e.innerHTML = msg;
                         }
 
